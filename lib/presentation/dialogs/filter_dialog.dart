@@ -1,9 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:rick_and_morty/constants/text_manager.dart';
-import 'package:rick_and_morty/constants/text_styles.dart';
-import 'package:rick_and_morty/data/models/filters/character_filter.dart';
-import 'package:rick_and_morty/presentation/global/components/app_button.dart';
-import 'package:rick_and_morty/presentation/global/components/app_dropdown_button.dart';
+
+import '../../constants/text_styles.dart';
+import '../../data/models/filters/character_filter.dart';
+import '../global/components/app_button.dart';
+import '../global/components/app_dropdown_button.dart';
 
 Future<(CharacterStatus, CharacterGender)?> showFilterDialog(BuildContext context, CharacterFilter filter) {
   return showDialog<(CharacterStatus, CharacterGender)>(
@@ -44,6 +45,9 @@ class __FilterBodyState extends State<_FilterBody> {
       contentPadding: const EdgeInsets.all(16),
       insetPadding: EdgeInsets.zero,
       titlePadding: EdgeInsets.zero,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
       children: [
         const _TopRow(),
         AppDropdown<CharacterStatus>(
@@ -57,7 +61,7 @@ class __FilterBodyState extends State<_FilterBody> {
           onChanged: (gender) => filter = filter.copyWith(gender: gender),
         ),
         AppButton(
-          text: TextManager.apply,
+          text: "apply".tr(),
           onPressed: () {
             Navigator.of(context).pop((filter.status, filter.gender));
           },
@@ -78,7 +82,7 @@ class _TopRow extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Text(TextManager.filters, style: TextStyles.cardNameStyle),
+          const Text("filters", style: TextStyles.cardNameStyle).tr(),
           GestureDetector(
             onTap: () {
               Navigator.of(context).pop();

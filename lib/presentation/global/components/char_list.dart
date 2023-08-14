@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:rick_and_morty/constants/text_styles.dart';
-import 'package:rick_and_morty/data/models/response/character_model.dart';
-import 'package:rick_and_morty/presentation/global/components/char_card.dart';
+
+import '../../../constants/text_styles.dart';
+import '../../../data/models/response/character_model.dart';
+import 'char_card.dart';
 
 class CharList extends StatelessWidget {
   const CharList({

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:rick_and_morty/presentation/global/skeletons/fractionally_text_skeleton.dart';
+
+import 'fractionally_text_skeleton.dart';
 
 class EntityNameSkeleton extends StatelessWidget {
   const EntityNameSkeleton({

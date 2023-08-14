@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:rick_and_morty/presentation/global/skeletons/fractionally_text_skeleton.dart';
-import 'package:rick_and_morty/presentation/global/skeletons/info_list_tile_skeleton.dart';
+
+import 'fractionally_text_skeleton.dart';
+import 'info_list_tile_skeleton.dart';
 
 class InfoSkeleton extends StatelessWidget {
   const InfoSkeleton({

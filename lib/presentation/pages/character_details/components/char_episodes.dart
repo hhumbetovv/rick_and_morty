@@ -1,10 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:rick_and_morty/constants/routes.dart';
-import 'package:rick_and_morty/constants/text_manager.dart';
-import 'package:rick_and_morty/constants/text_styles.dart';
-import 'package:rick_and_morty/data/models/response/episode_model.dart';
-import 'package:rick_and_morty/presentation/global/components/app_inkwell.dart';
+
+import '../../../../constants/routes.dart';
+import '../../../../constants/text_styles.dart';
+import '../../../../data/models/response/episode_model.dart';
+import '../../../global/components/app_inkwell.dart';
 
 class CharEpisodes extends StatelessWidget {
   const CharEpisodes({
@@ -21,7 +22,7 @@ class CharEpisodes extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(TextManager.episodes, style: TextStyles.containerTitleStyle),
+          const Text("episodes", style: TextStyles.containerTitleStyle).tr(),
           const SizedBox(height: 16),
           ...episodes.map((model) => _EpisodeListTile(model: model)).toList(),
         ],

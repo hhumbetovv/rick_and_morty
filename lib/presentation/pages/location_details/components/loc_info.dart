@@ -1,8 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:rick_and_morty/constants/text_manager.dart';
-import 'package:rick_and_morty/constants/text_styles.dart';
-import 'package:rick_and_morty/data/models/response/location_model.dart';
-import 'package:rick_and_morty/presentation/global/components/info_list_tile.dart';
+
+import '../../../../constants/text_styles.dart';
+import '../../../../data/models/response/location_model.dart';
+import '../../../global/components/info_list_tile.dart';
 
 class LocInfo extends StatelessWidget {
   const LocInfo({
@@ -19,10 +20,10 @@ class LocInfo extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(TextManager.informations, style: TextStyles.containerTitleStyle),
+          const Text("informations", style: TextStyles.containerTitleStyle).tr(),
           const SizedBox(height: 16),
-          InfoListTile(title: TextManager.type, value: model?.type ?? ''),
-          InfoListTile(title: TextManager.dimension, value: model?.dimension ?? ''),
+          InfoListTile(title: "type".tr(), value: model?.type.tr() ?? ''),
+          InfoListTile(title: "dimension".tr(), value: model?.dimension.tr() ?? ''),
         ],
       ),
     );

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:rick_and_morty/constants/colors.dart';
-import 'package:rick_and_morty/presentation/global/components/app_card.dart';
-import 'package:rick_and_morty/presentation/global/skeletons/fractionally_text_skeleton.dart';
 import 'package:shimmer/shimmer.dart';
+
+import '../../../constants/colors.dart';
+import '../components/app_card.dart';
+import 'fractionally_text_skeleton.dart';
 
 class CharCardSkeleton extends StatelessWidget {
   const CharCardSkeleton({

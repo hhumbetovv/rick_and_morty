@@ -52,6 +52,7 @@ dependencies:
     bloc: ^8.1.2
     meta: ^1.9.1
     #! Localization
+    easy_localization: ^3.0.2
     #! Others
     device_preview: ^1.1.0
 
@@ -78,8 +79,9 @@ flutter:
     # the material Icons class.
     uses-material-design: true
     assets:
-        - assets/images/
         - assets/gifs/
+        - assets/images/
+        - assets/translations/
 
     # To add assets to your application, add an assets section, like this:
     # assets:

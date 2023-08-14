@@ -1,6 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:rick_and_morty/constants/text_manager.dart';
-import 'package:rick_and_morty/constants/text_styles.dart';
+
+import '../../../constants/text_styles.dart';
 
 class InfoListTile extends StatelessWidget {
   const InfoListTile({
@@ -23,7 +24,7 @@ class InfoListTile extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(title, style: TextStyles.infoTitleStyle),
-              Text(value.isEmpty ? TextManager.unknown : value, style: TextStyles.infoValueStyle),
+              Text(value.isEmpty ? "unknown".tr() : value, style: TextStyles.infoValueStyle),
             ],
           ),
         ),

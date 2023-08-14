@@ -1,6 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-import '../../../constants/text_manager.dart';
 import '../../../constants/text_styles.dart';
 
 class LoadMoreButton extends StatelessWidget {
@@ -28,9 +28,9 @@ class LoadMoreButton extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 28),
                 ),
                 child: const Text(
-                  TextManager.loadMoreText,
+                  "loadMore",
                   style: TextStyles.loadMoreStyle,
-                ),
+                ).tr(),
               ),
       ),
     );

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../constants/images.dart';
+import 'components/language_button.dart';
 import 'components/menu_button.dart';
 import 'components/selections.dart';
 
@@ -40,6 +41,7 @@ class _HomeViewState extends State<HomeView> {
           child: Image.asset(AppImages.logo.path),
         ),
         actions: [
+          const LanguageButton(),
           ValueListenableBuilder(
             valueListenable: _openMenu,
             builder: (context, open, child) {

@@ -1,13 +1,14 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:rick_and_morty/constants/routes.dart';
-import 'package:rick_and_morty/constants/text_manager.dart';
-import 'package:rick_and_morty/constants/text_styles.dart';
-import 'package:rick_and_morty/data/models/response/character_location_model.dart';
-import 'package:rick_and_morty/data/models/response/character_model.dart';
-import 'package:rick_and_morty/presentation/global/components/app_inkwell.dart';
-import 'package:rick_and_morty/presentation/global/components/info_list_tile.dart';
-import 'package:rick_and_morty/utils/url_helper.dart';
+
+import '../../../../constants/routes.dart';
+import '../../../../constants/text_styles.dart';
+import '../../../../data/models/response/character_location_model.dart';
+import '../../../../data/models/response/character_model.dart';
+import '../../../../utils/url_helper.dart';
+import '../../../global/components/app_inkwell.dart';
+import '../../../global/components/info_list_tile.dart';
 
 class CharInfo extends StatelessWidget {
   const CharInfo({
@@ -24,14 +25,14 @@ class CharInfo extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(TextManager.informations, style: TextStyles.containerTitleStyle),
+          const Text("informations", style: TextStyles.containerTitleStyle).tr(),
           const SizedBox(height: 16),
-          InfoListTile(title: TextManager.gender, value: model?.gender ?? ''),
-          InfoListTile(title: TextManager.status, value: model?.status ?? ''),
-          InfoListTile(title: TextManager.specie, value: model?.species ?? ''),
-          InfoListTile(title: TextManager.type, value: model?.type ?? ''),
-          _LocationListTile(title: TextManager.origin, location: model?.origin),
-          _LocationListTile(title: TextManager.location, location: model?.location),
+          InfoListTile(title: "gender".tr(), value: model?.gender.tr() ?? ''),
+          InfoListTile(title: "status".tr(), value: model?.status.tr() ?? ''),
+          InfoListTile(title: "specie".tr(), value: model?.species.tr() ?? ''),
+          InfoListTile(title: "type".tr(), value: model?.type.tr() ?? ''),
+          _LocationListTile(title: "origin".tr(), location: model?.origin),
+          _LocationListTile(title: "location".tr(), location: model?.location),
         ],
       ),
     );
@@ -69,7 +70,7 @@ class _LocationListTile extends StatelessWidget {
                     children: [
                       Text(title, style: TextStyles.infoTitleStyle),
                       Text(
-                        (location?.name.isEmpty ?? true) ? TextManager.unknown : location!.name,
+                        (location?.name.isEmpty ?? true) ? "unknown".tr() : location!.name,
                         style: TextStyles.infoValueStyle,
                       ),
                     ],

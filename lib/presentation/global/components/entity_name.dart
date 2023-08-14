@@ -1,6 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:rick_and_morty/constants/text_manager.dart';
-import 'package:rick_and_morty/constants/text_styles.dart';
+
+import '../../../constants/text_styles.dart';
 
 class EntityName extends StatelessWidget {
   const EntityName({
@@ -26,7 +27,7 @@ class EntityName extends StatelessWidget {
         child: FittedBox(
           fit: BoxFit.fitWidth,
           child: Text(
-            name.isEmpty ? TextManager.unknown : name,
+            name.isEmpty ? "unknown".tr() : name,
             textAlign: TextAlign.center,
             overflow: TextOverflow.ellipsis,
             style: TextStyles.nameStyle,

@@ -1,12 +1,12 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:rick_and_morty/data/models/filters/character_filter.dart';
-import 'package:rick_and_morty/presentation/dialogs/filter_dialog.dart';
-import 'package:rick_and_morty/presentation/global/components/app_button.dart';
 
 import '../../../constants/images.dart';
-import '../../../constants/text_manager.dart';
 import '../../../cubits/characters/characters_cubit.dart';
+import '../../../data/models/filters/character_filter.dart';
+import '../../dialogs/filter_dialog.dart';
+import '../../global/components/app_button.dart';
 import '../../global/components/char_card.dart';
 import '../../global/components/load_more_button.dart';
 import '../../global/components/name_search.dart';
@@ -34,15 +34,18 @@ class CharactersView extends StatelessWidget {
               }),
             ),
             SliverToBoxAdapter(
-              child: AppButton(
-                text: TextManager.advancedFilters,
-                onPressed: () async {
-                  final result = await showFilterDialog(context, context.read<CharactersCubit>().state.filter);
-                  if (result != null && context.mounted) {
-                    final (CharacterStatus status, CharacterGender gender) = result;
-                    context.read<CharactersCubit>().setFilter(status: status, gender: gender);
-                  }
-                },
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 16),
+                child: AppButton(
+                  text: "advancedFilters".tr(),
+                  onPressed: () async {
+                    final result = await showFilterDialog(context, context.read<CharactersCubit>().state.filter);
+                    if (result != null && context.mounted) {
+                      final (CharacterStatus status, CharacterGender gender) = result;
+                      context.read<CharactersCubit>().setFilter(status: status, gender: gender);
+                    }
+                  },
+                ),
               ),
             ),
             BlocConsumer<CharactersCubit, CharactersState>(
@@ -50,7 +53,7 @@ class CharactersView extends StatelessWidget {
                 if (state.failure != null && state.characters.isNotEmpty) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
-                      content: Text(state.failure?.message ?? TextManager.error),
+                      content: Text(state.failure?.message ?? "error".tr()),
                     ),
                   );
                 }

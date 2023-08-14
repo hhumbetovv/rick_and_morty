@@ -1,6 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-
-import '../../../constants/text_manager.dart';
 
 class CardText extends StatelessWidget {
   const CardText(
@@ -15,7 +14,7 @@ class CardText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      text ?? TextManager.unknown,
+      text ?? "unknown".tr(),
       maxLines: 1,
       overflow: TextOverflow.ellipsis,
       style: style,

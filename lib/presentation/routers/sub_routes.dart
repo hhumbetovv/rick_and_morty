@@ -1,19 +1,19 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:rick_and_morty/cubits/episode_details/episode_details_cubit.dart';
-import 'package:rick_and_morty/cubits/location_details/location_details_cubit.dart';
-import 'package:rick_and_morty/data/contractors/base_episode_repository.dart';
-import 'package:rick_and_morty/data/contractors/base_location_repository.dart';
-import 'package:rick_and_morty/data/repositories/episode_repository.dart';
-import 'package:rick_and_morty/data/repositories/location_repository.dart';
-import 'package:rick_and_morty/presentation/pages/episode_details/episode_details_view.dart';
-import 'package:rick_and_morty/presentation/pages/location_details/locations_details_view.dart';
 
 import '../../constants/routes.dart';
 import '../../cubits/character_details/character_details_cubit.dart';
+import '../../cubits/episode_details/episode_details_cubit.dart';
+import '../../cubits/location_details/location_details_cubit.dart';
 import '../../data/contractors/base_character_repository.dart';
+import '../../data/contractors/base_episode_repository.dart';
+import '../../data/contractors/base_location_repository.dart';
 import '../../data/repositories/character_repository.dart';
+import '../../data/repositories/episode_repository.dart';
+import '../../data/repositories/location_repository.dart';
 import '../pages/character_details/character_details_view.dart';
+import '../pages/episode_details/episode_details_view.dart';
+import '../pages/location_details/locations_details_view.dart';
 
 abstract class SubRoutes {
   static final List<GoRoute> _routes = [

@@ -1,13 +1,13 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:multiple_result/multiple_result.dart';
-import 'package:rick_and_morty/data/contractors/base_location_repository.dart';
-import 'package:rick_and_morty/data/models/response/location_model.dart';
-import 'package:rick_and_morty/utils/url_helper.dart';
 
 import '../../data/contractors/base_character_repository.dart';
+import '../../data/contractors/base_location_repository.dart';
 import '../../data/failures.dart';
 import '../../data/models/response/character_model.dart';
+import '../../data/models/response/location_model.dart';
+import '../../utils/url_helper.dart';
 
 part 'location_details_state.dart';
 

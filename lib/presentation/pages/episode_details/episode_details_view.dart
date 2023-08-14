@@ -1,15 +1,16 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:rick_and_morty/constants/text_manager.dart';
-import 'package:rick_and_morty/cubits/episode_details/episode_details_cubit.dart';
-import 'package:rick_and_morty/presentation/global/components/char_list.dart';
-import 'package:rick_and_morty/presentation/global/components/entity_name.dart';
-import 'package:rick_and_morty/presentation/global/components/go_back_button.dart';
-import 'package:rick_and_morty/presentation/global/skeletons/char_list_skeleton.dart';
-import 'package:rick_and_morty/presentation/global/skeletons/entity_name_skeleton.dart';
-import 'package:rick_and_morty/presentation/global/skeletons/info_skeleton.dart';
-import 'package:rick_and_morty/presentation/pages/episode_details/ep_info.dart';
+
+import '../../../cubits/episode_details/episode_details_cubit.dart';
+import '../../global/components/char_list.dart';
+import '../../global/components/entity_name.dart';
+import '../../global/components/go_back_button.dart';
+import '../../global/skeletons/char_list_skeleton.dart';
+import '../../global/skeletons/entity_name_skeleton.dart';
+import '../../global/skeletons/info_skeleton.dart';
+import 'ep_info.dart';
 
 class EpisodeDetailsView extends StatelessWidget {
   const EpisodeDetailsView({
@@ -28,7 +29,7 @@ class EpisodeDetailsView extends StatelessWidget {
               context.pop();
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
-                  content: Text(state.failure?.message ?? TextManager.error),
+                  content: Text(state.failure?.message ?? "error".tr()),
                 ),
               );
             }
@@ -56,7 +57,7 @@ class EpisodeDetailsView extends StatelessWidget {
                     const GoBackButton(),
                     EntityName.padding(name: state.model?.name ?? ''),
                     EpInfo(model: state.model),
-                    CharList(title: TextManager.cast, list: state.cast),
+                    CharList(title: "cast".tr(), list: state.cast),
                   ],
                 ),
               ),

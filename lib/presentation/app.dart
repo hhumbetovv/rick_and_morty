@@ -1,6 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-import '../constants/text_manager.dart';
 import '../constants/themes.dart';
 import 'routers/app_router.dart';
 
@@ -12,10 +12,13 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: TextManager.appTitle,
+      title: "appTitle".tr(),
       theme: AppThemes.light,
       debugShowCheckedModeBanner: false,
       routerConfig: AppRouter.router,
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
       builder: (context, child) {
         final MediaQueryData data = MediaQuery.of(context);
         return MediaQuery(

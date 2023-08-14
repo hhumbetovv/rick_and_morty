@@ -1,8 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../constants/images.dart';
-import '../../../constants/text_manager.dart';
 import '../../../cubits/episodes/episodes_cubit.dart';
 import '../../global/components/load_more_button.dart';
 import '../../global/components/name_search.dart';
@@ -35,7 +35,7 @@ class EpisodesView extends StatelessWidget {
                 if (state.failure != null && state.episodes.isNotEmpty) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
-                      content: Text(state.failure!.message ?? TextManager.error),
+                      content: Text(state.failure!.message ?? "error".tr()),
                     ),
                   );
                 }

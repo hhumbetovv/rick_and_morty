@@ -1,6 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 
-import '../../../../constants/text_manager.dart';
 import '../../../../constants/text_styles.dart';
 
 class Selections extends StatelessWidget {
@@ -19,15 +19,15 @@ class Selections extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           _SelectionButton(
-            text: TextManager.characters,
+            text: "characters",
             onTap: () => indexCallback(0),
           ),
           _SelectionButton(
-            text: TextManager.locations,
+            text: "locations",
             onTap: () => indexCallback(1),
           ),
           _SelectionButton(
-            text: TextManager.episodes,
+            text: "episodes",
             onTap: () => indexCallback(2),
           ),
         ],
@@ -52,7 +52,7 @@ class _SelectionButton extends StatelessWidget {
       padding: const EdgeInsets.only(top: 24),
       child: CupertinoButton(
         onPressed: onTap,
-        child: Text(text, style: TextStyles.selectionStyle),
+        child: Text(text.tr(), style: TextStyles.selectionStyle),
       ),
     );
   }

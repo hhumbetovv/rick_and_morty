@@ -1,16 +1,17 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:rick_and_morty/constants/text_manager.dart';
-import 'package:rick_and_morty/cubits/character_details/character_details_cubit.dart';
-import 'package:rick_and_morty/presentation/global/components/entity_name.dart';
-import 'package:rick_and_morty/presentation/global/components/go_back_button.dart';
-import 'package:rick_and_morty/presentation/global/skeletons/entity_name_skeleton.dart';
-import 'package:rick_and_morty/presentation/global/skeletons/info_skeleton.dart';
-import 'package:rick_and_morty/presentation/pages/character_details/components/avatar.dart';
-import 'package:rick_and_morty/presentation/pages/character_details/components/avatar_skeleton.dart';
-import 'package:rick_and_morty/presentation/pages/character_details/components/char_episodes.dart';
-import 'package:rick_and_morty/presentation/pages/character_details/components/char_info.dart';
+
+import '../../../cubits/character_details/character_details_cubit.dart';
+import '../../global/components/entity_name.dart';
+import '../../global/components/go_back_button.dart';
+import '../../global/skeletons/entity_name_skeleton.dart';
+import '../../global/skeletons/info_skeleton.dart';
+import 'components/avatar.dart';
+import 'components/avatar_skeleton.dart';
+import 'components/char_episodes.dart';
+import 'components/char_info.dart';
 
 class CharacterDetailsView extends StatelessWidget {
   const CharacterDetailsView({
@@ -31,7 +32,7 @@ class CharacterDetailsView extends StatelessWidget {
                 context.pop();
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
-                    content: Text(state.failure?.message ?? TextManager.error),
+                    content: Text(state.failure?.message ?? "error".tr()),
                   ),
                 );
               }

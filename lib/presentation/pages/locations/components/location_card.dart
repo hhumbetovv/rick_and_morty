@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:rick_and_morty/constants/routes.dart';
 
+import '../../../../constants/routes.dart';
 import '../../../../constants/text_styles.dart';
 import '../../../global/components/app_card.dart';
 import '../../../global/components/card_text.dart';

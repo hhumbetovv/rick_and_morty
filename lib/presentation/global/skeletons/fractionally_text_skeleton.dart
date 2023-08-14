@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:rick_and_morty/constants/colors.dart';
 import 'package:shimmer/shimmer.dart';
+
+import '../../../constants/colors.dart';
 
 class FractionallyTextSkeleton extends StatelessWidget {
   const FractionallyTextSkeleton({

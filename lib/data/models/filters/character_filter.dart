@@ -1,5 +1,4 @@
 import 'package:equatable/equatable.dart';
-import 'package:rick_and_morty/constants/text_manager.dart';
 
 class CharacterFilter extends Equatable {
   final String name;
@@ -29,10 +28,10 @@ class CharacterFilter extends Equatable {
 }
 
 enum CharacterStatus {
-  nostatus('', TextManager.noStatus),
-  alive('alive', TextManager.alive),
-  dead('dead', TextManager.dead),
-  unknown('unknown', TextManager.unknown);
+  nostatus('', "No Status Selection"),
+  alive('alive', "Alive"),
+  dead('dead', "Dead"),
+  unknown('unknown', "unknown");
 
   const CharacterStatus(this.value, this.text);
 
@@ -41,11 +40,11 @@ enum CharacterStatus {
 }
 
 enum CharacterGender {
-  nogender('', TextManager.noGender),
-  female('female', TextManager.female),
-  male('male', TextManager.male),
-  genderless('genderless', TextManager.genderless),
-  unknown('unknown', TextManager.unknown);
+  nogender('', "No Gender Selection"),
+  female('female', "Female"),
+  male('male', "Male"),
+  genderless('genderless', "Genderless"),
+  unknown('unknown', "unknown");
 
   const CharacterGender(this.value, this.text);
 

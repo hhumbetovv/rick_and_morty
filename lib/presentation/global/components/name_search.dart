@@ -1,6 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-import '../../../constants/text_manager.dart';
 import '../../../constants/text_styles.dart';
 import 'app_inkwell.dart';
 
@@ -47,11 +47,11 @@ class _NameSearchState extends State<NameSearch> {
               child: TextField(
                 controller: _controller,
                 focusNode: _node,
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                   contentPadding: EdgeInsets.zero,
-                  label: Text(TextManager.searchLabel),
-                  prefixIcon: Icon(Icons.search),
-                  border: OutlineInputBorder(
+                  label: Text("searchByName".tr()),
+                  prefixIcon: const Icon(Icons.search),
+                  border: const OutlineInputBorder(
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(8),
                       bottomLeft: Radius.circular(8),
@@ -76,9 +76,9 @@ class _NameSearchState extends State<NameSearch> {
                   ),
                 ),
                 child: const Text(
-                  TextManager.search,
+                  "search",
                   style: TextStyles.labelStyle,
-                ),
+                ).tr(),
               ),
             ),
           ],
