@@ -7,7 +7,7 @@ import '../../../cubits/locations/locations_cubit.dart';
 import '../../global/components/load_more_button.dart';
 import '../../global/components/name_search.dart';
 import '../../global/components/page_image.dart';
-import 'components/location_card.dart';
+import 'components/loc_card.dart';
 
 class LocationsView extends StatelessWidget {
   const LocationsView({
@@ -68,7 +68,7 @@ class LocationsView extends StatelessWidget {
                         },
                       );
                     }
-                    return LocationCard(
+                    return LocCard(
                       id: state.locations[index].id,
                       name: state.locations[index].name,
                       type: state.locations[index].type,

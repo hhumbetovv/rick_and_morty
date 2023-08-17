@@ -2,12 +2,12 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants/text_styles.dart';
-import '../../data/models/filters/character_filter.dart';
+import '../../data/models/filters/char_filter.dart';
 import '../global/components/app_button.dart';
 import '../global/components/app_dropdown_button.dart';
 
-Future<(CharacterStatus, CharacterGender)?> showFilterDialog(BuildContext context, CharacterFilter filter) {
-  return showDialog<(CharacterStatus, CharacterGender)>(
+Future<(CharStatus, CharGender)?> showFilterDialog(BuildContext context, CharFilter filter) {
+  return showDialog<(CharStatus, CharGender)>(
     context: context,
     barrierDismissible: false,
     builder: (context) {
@@ -24,14 +24,14 @@ class _FilterBody extends StatefulWidget {
     required this.filter,
   }) : super(key: key);
 
-  final CharacterFilter filter;
+  final CharFilter filter;
 
   @override
   State<_FilterBody> createState() => __FilterBodyState();
 }
 
 class __FilterBodyState extends State<_FilterBody> {
-  late CharacterFilter filter;
+  late CharFilter filter;
 
   @override
   void initState() {
@@ -50,14 +50,14 @@ class __FilterBodyState extends State<_FilterBody> {
       ),
       children: [
         const _TopRow(),
-        AppDropdown<CharacterStatus>(
+        AppDropdown<CharStatus>(
           value: filter.status,
-          values: CharacterStatus.values.map((status) => (status, status.text)).toList(),
+          values: CharStatus.values.map((status) => (status, status.text)).toList(),
           onChanged: (status) => filter = filter.copyWith(status: status),
         ),
-        AppDropdown<CharacterGender>(
+        AppDropdown<CharGender>(
           value: filter.gender,
-          values: CharacterGender.values.map((gender) => (gender, gender.text)).toList(),
+          values: CharGender.values.map((gender) => (gender, gender.text)).toList(),
           onChanged: (gender) => filter = filter.copyWith(gender: gender),
         ),
         AppButton(

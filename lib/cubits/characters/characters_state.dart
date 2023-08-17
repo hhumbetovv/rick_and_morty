@@ -1,11 +1,11 @@
 part of 'characters_cubit.dart';
 
 class CharactersState extends Equatable {
-  final List<CharacterModel> characters;
+  final List<CharModel> characters;
   final int nextPage;
   final bool isLoading;
   final EntityFailure? failure;
-  final CharacterFilter filter;
+  final CharFilter filter;
 
   const CharactersState({
     required this.characters,
@@ -19,11 +19,11 @@ class CharactersState extends Equatable {
   List<Object?> get props => [characters, isLoading, failure, nextPage, filter];
 
   CharactersState copyWith({
-    List<CharacterModel>? characters,
+    List<CharModel>? characters,
     int? nextPage,
     EntityFailure? failure,
     bool isLoading = false,
-    CharacterFilter? filter,
+    CharFilter? filter,
   }) {
     return CharactersState(
       characters: characters ?? this.characters,

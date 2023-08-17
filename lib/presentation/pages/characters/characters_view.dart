@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../constants/images.dart';
 import '../../../cubits/characters/characters_cubit.dart';
-import '../../../data/models/filters/character_filter.dart';
+import '../../../data/models/filters/char_filter.dart';
 import '../../dialogs/filter_dialog.dart';
 import '../../global/components/app_button.dart';
 import '../../global/components/char_card.dart';
@@ -41,7 +41,7 @@ class CharactersView extends StatelessWidget {
                   onPressed: () async {
                     final result = await showFilterDialog(context, context.read<CharactersCubit>().state.filter);
                     if (result != null && context.mounted) {
-                      final (CharacterStatus status, CharacterGender gender) = result;
+                      final (CharStatus status, CharGender gender) = result;
                       context.read<CharactersCubit>().setFilter(status: status, gender: gender);
                     }
                   },

@@ -14,11 +14,12 @@ void main() async {
       builder: (context) {
         return EasyLocalization(
           supportedLocales: const [
-            // Locale("en", "US"),
+            Locale("en", "US"),
             Locale("tr", "TR"),
+            Locale("az", "AZ"),
           ],
           path: 'assets/translations',
-          fallbackLocale: const Locale('tr', 'TR'),
+          fallbackLocale: const Locale('en', 'US'),
           child: const App(),
         );
       },

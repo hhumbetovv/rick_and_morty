@@ -1,17 +1,19 @@
 {
     "appTitle": "Rick and Morty",
     "characters": "Characters",
+    "character": "Character",
     "locations": "Locations",
+    "location": "Location",
     "episodes": "Episodes",
+    "episode": "Episode",
     "loadMore": "LOAD MORE",
     "goBack": "GO BACK",
     "apply": "APPLY",
     "advancedFilters": "ADVANCED FILTERS",
     "search": "Search",
     "searchByName": "Search by name",
-    "error": "Some error orrured",
+    "error": "Error occured",
     "informations": "Informations",
-    "location": "Location",
     "gender": "Gender",
     "status": "Status",
     "specie": "Specie",
@@ -20,7 +22,6 @@
     "dimension": "Dimension",
     "residents": "Residents",
     "cast": "Cast",
-    "episode": "Episode",
     "date": "Date",
     "filters": "Filters",
     "unknown": "unknown",
@@ -30,5 +31,7 @@
     "noGender": "No gender",
     "female": "Female",
     "male": "Male",
-    "genderless": "Genderless"
+    "genderless": "Genderless",
+    "fetchingFailure": "Error occured while fetching {}\nPlease check your internet connection",
+    "fetchingFailureWithFilter": "Error occured while fetching {}\nPlease check your internet connection or use different filter options"
 }

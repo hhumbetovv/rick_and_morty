@@ -1,31 +1,33 @@
 import 'package:bloc/bloc.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
-import '../../data/contractors/base_location_repository.dart';
+import '../../data/contractors/base_loc_repository.dart';
 import '../../data/failures.dart';
-import '../../data/models/filters/location_filter.dart';
-import '../../data/models/response/location_model.dart';
+import '../../data/models/filters/loc_filter.dart';
+import '../../data/models/response/loc_model.dart';
 import '../../data/models/response/result_model.dart';
 
 part 'locations_state.dart';
 
 class LocationsCubit extends Cubit<LocationsState> {
-  LocationsCubit(this.locationRepository)
-      : super(const LocationsState(locations: [], nextPage: 1, filter: LocationFilter()));
+  LocationsCubit(
+    this._locRepository,
+  ) : super(const LocationsState(locations: [], nextPage: 1, filter: LocationFilter()));
 
-  final BaseLocationRepository locationRepository;
+  final BaseLocRepository _locRepository;
 
   void getLocations() async {
     emit(state.copyWith(isLoading: true));
-    final response = await locationRepository.getLocations(
+    final response = await _locRepository.getLocations(
       page: state.nextPage,
       name: state.filter.name,
     );
     if (response.isSuccess()) {
       final ResultModel result = response.tryGetSuccess()!;
-      final List<LocationModel> locations = result.results.map((entityJson) {
-        return LocationModel.fromJson(entityJson);
+      final List<LocModel> locations = result.results.map((entityJson) {
+        return LocModel.fromJson(entityJson);
       }).toList();
       final int nextPage = result.info.next == null ? -1 : state.nextPage + 1;
       emit(
@@ -38,8 +40,7 @@ class LocationsCubit extends Cubit<LocationsState> {
       emit(
         state.copyWith(
           failure: EntityFailure(
-            'Some Error occured while fetching locations\n'
-            'Please check your internet connection or use different filter options',
+            "fetchingFailureWithFilter".tr(args: ["locations".tr().toLowerCase()]),
           ),
         ),
       );

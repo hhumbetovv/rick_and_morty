@@ -4,9 +4,9 @@ import 'package:go_router/go_router.dart';
 import '../../constants/routes.dart';
 import '../pages/home/home_view.dart';
 import '../pages/splash/splash_view.dart';
-import 'characters_branch.dart';
-import 'episodes_branch.dart';
-import 'locations_branch.dart';
+import 'char_branch.dart';
+import 'ep_branch.dart';
+import 'loc_branch.dart';
 
 class AppRouter {
   static final _rootNavigatorKey = GlobalKey<NavigatorState>();
@@ -37,9 +37,9 @@ class AppRouter {
           );
         },
         branches: [
-          CharactersBranch(),
-          LocationsBranch(),
-          EpisodesBranch(),
+          CharBranch(),
+          LocBranch(),
+          EpBranch(),
         ],
       ),
     ],

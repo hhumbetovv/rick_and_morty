@@ -1,7 +1,7 @@
 part of 'locations_cubit.dart';
 
 class LocationsState extends Equatable {
-  final List<LocationModel> locations;
+  final List<LocModel> locations;
   final int nextPage;
   final bool isLoading;
   final EntityFailure? failure;
@@ -19,7 +19,7 @@ class LocationsState extends Equatable {
   List<Object?> get props => [locations, isLoading, failure, nextPage, filter];
 
   LocationsState copyWith({
-    List<LocationModel>? locations,
+    List<LocModel>? locations,
     int? nextPage,
     EntityFailure? failure,
     bool isLoading = false,

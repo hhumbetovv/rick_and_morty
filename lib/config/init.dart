@@ -3,9 +3,9 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../data/services/character_service.dart';
-import '../data/services/episode_service.dart';
-import '../data/services/location_service.dart';
+import '../data/services/char_service.dart';
+import '../data/services/ep_service.dart';
+import '../data/services/loc_service.dart';
 import '../locator.dart';
 
 Future<void> init() async {
@@ -19,9 +19,9 @@ Future<void> init() async {
   final locator = Locator.instance;
   final dio = Dio();
 
-  locator.register<CharacterService>(CharacterService(dio));
-  locator.register<LocationService>(LocationService(dio));
-  locator.register<EpisodeService>(EpisodeService(dio));
+  locator.register<CharService>(CharService(dio));
+  locator.register<LocService>(LocService(dio));
+  locator.register<EpService>(EpService(dio));
 
   await EasyLocalization.ensureInitialized();
 }

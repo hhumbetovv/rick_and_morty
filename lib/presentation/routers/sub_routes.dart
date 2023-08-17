@@ -2,68 +2,68 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../constants/routes.dart';
-import '../../cubits/character_details/character_details_cubit.dart';
-import '../../cubits/episode_details/episode_details_cubit.dart';
-import '../../cubits/location_details/location_details_cubit.dart';
-import '../../data/contractors/base_character_repository.dart';
-import '../../data/contractors/base_episode_repository.dart';
-import '../../data/contractors/base_location_repository.dart';
-import '../../data/repositories/character_repository.dart';
-import '../../data/repositories/episode_repository.dart';
-import '../../data/repositories/location_repository.dart';
-import '../pages/character_details/character_details_view.dart';
-import '../pages/episode_details/episode_details_view.dart';
-import '../pages/location_details/locations_details_view.dart';
+import '../../cubits/char_details/char_details_cubit.dart';
+import '../../cubits/ep_details/ep_details_cubit.dart';
+import '../../cubits/loc_details/loc_details_cubit.dart';
+import '../../data/contractors/base_char_repository.dart';
+import '../../data/contractors/base_ep_repository.dart';
+import '../../data/contractors/base_loc_repository.dart';
+import '../../data/repositories/char_repository.dart';
+import '../../data/repositories/ep_repository.dart';
+import '../../data/repositories/loc_repository.dart';
+import '../pages/char_details/char_details_view.dart';
+import '../pages/ep_details/episode_details_view.dart';
+import '../pages/loc_details/loc_details_view.dart';
 
 abstract class SubRoutes {
   static final List<GoRoute> _routes = [
     GoRoute(
-      path: '${Routes.characterDetails}/:id',
+      path: '${Routes.charDetails}/:id',
       builder: (context, state) {
-        return RepositoryProvider<BaseCharacterRepository>(
-          create: (context) => CharacterRepository(),
-          child: RepositoryProvider<BaseEpisodeRepository>(
-            create: (context) => EpisodeRepository(),
+        return RepositoryProvider<BaseCharRepository>(
+          create: (context) => CharRepository(),
+          child: RepositoryProvider<BaseEpRepository>(
+            create: (context) => EpRepository(),
             child: BlocProvider(
-              create: (context) => CharacterDetailsCubit(
-                context.read<BaseCharacterRepository>(),
-                context.read<BaseEpisodeRepository>(),
+              create: (context) => CharDetailsCubit(
+                context.read<BaseCharRepository>(),
+                context.read<BaseEpRepository>(),
               )..fetchCharacter(int.parse(state.pathParameters['id'] ?? '1')),
-              child: const CharacterDetailsView(),
+              child: const CharDetailsView(),
             ),
           ),
         );
       },
     ),
     GoRoute(
-      path: '${Routes.locationDetails}/:id',
+      path: '${Routes.locDetails}/:id',
       builder: (context, state) {
-        return RepositoryProvider<BaseLocationRepository>(
-          create: (context) => LocationRepository(),
-          child: RepositoryProvider<BaseCharacterRepository>(
-            create: (context) => CharacterRepository(),
+        return RepositoryProvider<BaseLocRepository>(
+          create: (context) => LocRepository(),
+          child: RepositoryProvider<BaseCharRepository>(
+            create: (context) => CharRepository(),
             child: BlocProvider(
-              create: (context) => LocationDetailsCubit(
-                context.read<BaseLocationRepository>(),
-                context.read<BaseCharacterRepository>(),
+              create: (context) => LocDetailsCubit(
+                context.read<BaseLocRepository>(),
+                context.read<BaseCharRepository>(),
               )..fetchLocation(int.parse(state.pathParameters['id'] ?? '1')),
-              child: const LocationDetailsView(),
+              child: const LocDetailsView(),
             ),
           ),
         );
       },
     ),
     GoRoute(
-      path: '${Routes.episodeDetails}/:id',
+      path: '${Routes.epDetails}/:id',
       builder: (context, state) {
-        return RepositoryProvider<BaseEpisodeRepository>(
-          create: (context) => EpisodeRepository(),
-          child: RepositoryProvider<BaseCharacterRepository>(
-            create: (context) => CharacterRepository(),
+        return RepositoryProvider<BaseEpRepository>(
+          create: (context) => EpRepository(),
+          child: RepositoryProvider<BaseCharRepository>(
+            create: (context) => CharRepository(),
             child: BlocProvider(
-              create: (context) => EpisodeDetailsCubit(
-                context.read<BaseEpisodeRepository>(),
-                context.read<BaseCharacterRepository>(),
+              create: (context) => EpDetailsCubit(
+                context.read<BaseEpRepository>(),
+                context.read<BaseCharRepository>(),
               )..fetchEpisode(int.parse(state.pathParameters['id'] ?? '1')),
               child: const EpisodeDetailsView(),
             ),

@@ -25,7 +25,7 @@ class CharCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppCard(
       onTap: () {
-        context.push('${Routes.characterDetails}/$id');
+        context.push('${Routes.charDetails}/$id');
       },
       child: Column(
         mainAxisSize: MainAxisSize.min,

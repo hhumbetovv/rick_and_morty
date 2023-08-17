@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../constants/text_styles.dart';
-import '../../../data/models/response/character_model.dart';
+import '../../../data/models/response/char_model.dart';
 import 'char_card.dart';
 
 class CharList extends StatelessWidget {
@@ -12,7 +12,7 @@ class CharList extends StatelessWidget {
   }) : super(key: key);
 
   final String title;
-  final List<CharacterModel> list;
+  final List<CharModel> list;
 
   @override
   Widget build(BuildContext context) {

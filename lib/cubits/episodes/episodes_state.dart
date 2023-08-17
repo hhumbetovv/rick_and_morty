@@ -1,7 +1,7 @@
 part of 'episodes_cubit.dart';
 
 class EpisodesState extends Equatable {
-  final List<EpisodeModel> episodes;
+  final List<EpModel> episodes;
   final int nextPage;
   final bool isLoading;
   final EntityFailure? failure;
@@ -19,7 +19,7 @@ class EpisodesState extends Equatable {
   List<Object?> get props => [episodes, isLoading, failure, nextPage, filter];
 
   EpisodesState copyWith({
-    List<EpisodeModel>? episodes,
+    List<EpModel>? episodes,
     int? nextPage,
     EntityFailure? failure,
     bool isLoading = false,

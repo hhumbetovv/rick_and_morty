@@ -7,7 +7,7 @@ import '../../../cubits/episodes/episodes_cubit.dart';
 import '../../global/components/load_more_button.dart';
 import '../../global/components/name_search.dart';
 import '../../global/components/page_image.dart';
-import 'components/episode_card.dart';
+import 'components/ep_card.dart';
 
 class EpisodesView extends StatelessWidget {
   const EpisodesView({
@@ -24,7 +24,7 @@ class EpisodesView extends StatelessWidget {
           physics: const BouncingScrollPhysics(),
           clipBehavior: Clip.none,
           slivers: [
-            const SliverToBoxAdapter(child: PageImage(image: AppImages.charsPageImage)),
+            const SliverToBoxAdapter(child: PageImage(image: AppImages.epsPageImage)),
             SliverToBoxAdapter(
               child: NameSearch(onSearch: (value) {
                 context.read<EpisodesCubit>().setFilter(name: value);
@@ -66,7 +66,7 @@ class EpisodesView extends StatelessWidget {
                         },
                       );
                     }
-                    return EpisodeCard(
+                    return EpCard(
                       id: state.episodes[index].id,
                       name: state.episodes[index].name,
                       air_date: state.episodes[index].air_date,

@@ -1,23 +1,25 @@
 import 'package:bloc/bloc.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:equatable/equatable.dart';
 
-import '../../data/contractors/base_character_repository.dart';
+import '../../data/contractors/base_char_repository.dart';
 import '../../data/failures.dart';
-import '../../data/models/filters/character_filter.dart';
-import '../../data/models/response/character_model.dart';
+import '../../data/models/filters/char_filter.dart';
+import '../../data/models/response/char_model.dart';
 import '../../data/models/response/result_model.dart';
 
 part 'characters_state.dart';
 
 class CharactersCubit extends Cubit<CharactersState> {
-  CharactersCubit(this._characterRepository)
-      : super(const CharactersState(characters: [], nextPage: 1, filter: CharacterFilter()));
+  CharactersCubit(
+    this._charRepository,
+  ) : super(const CharactersState(characters: [], nextPage: 1, filter: CharFilter()));
 
-  final BaseCharacterRepository _characterRepository;
+  final BaseCharRepository _charRepository;
 
   void getCharacters() async {
     emit(state.copyWith(isLoading: true));
-    final response = await _characterRepository.getCharacters(
+    final response = await _charRepository.getCharacters(
       page: state.nextPage,
       name: state.filter.name,
       status: state.filter.status.value,
@@ -25,8 +27,8 @@ class CharactersCubit extends Cubit<CharactersState> {
     );
     if (response.isSuccess()) {
       final ResultModel result = response.tryGetSuccess()!;
-      final List<CharacterModel> characters = result.results.map((entityJson) {
-        return CharacterModel.fromJson(entityJson);
+      final List<CharModel> characters = result.results.map((entityJson) {
+        return CharModel.fromJson(entityJson);
       }).toList();
       final int nextPage = result.info.next == null ? -1 : state.nextPage + 1;
       emit(
@@ -39,8 +41,7 @@ class CharactersCubit extends Cubit<CharactersState> {
       emit(
         state.copyWith(
           failure: EntityFailure(
-            'Some error occured while fetching characters\n'
-            'Please check your internet connection or use different filter options',
+            "fetchingFailureWithFilter".tr(args: ["characters".tr().toLowerCase()]),
           ),
         ),
       );
@@ -49,10 +50,10 @@ class CharactersCubit extends Cubit<CharactersState> {
 
   void setFilter({
     String? name,
-    CharacterStatus? status,
-    CharacterGender? gender,
+    CharStatus? status,
+    CharGender? gender,
   }) {
-    final CharacterFilter filter = CharacterFilter(
+    final CharFilter filter = CharFilter(
       name: name ?? state.filter.name,
       status: status ?? state.filter.status,
       gender: gender ?? state.filter.gender,

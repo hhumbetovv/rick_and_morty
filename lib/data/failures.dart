@@ -1,7 +1,7 @@
-class Failure {
+class StackFailure {
   final String? _message;
 
-  Failure([String? error, String? stack]) : _message = '$error => $stack';
+  StackFailure([String? error, String? stack]) : _message = '$error => $stack';
 
   String? get message => _message;
 }

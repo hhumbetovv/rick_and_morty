@@ -1,8 +1,11 @@
 {
     "appTitle": "Rick ve Morty",
     "characters": "Karakterler",
+    "character": "Karakter",
     "locations": "Konumlar",
+    "location": "Konum",
     "episodes": "Bölümler",
+    "episode": "Bölüm",
     "loadMore": "DAHA FAZLA YÜKLE",
     "goBack": "GERİ",
     "apply": "UYGULA",
@@ -11,7 +14,6 @@
     "searchByName": "İsme göre ara",
     "error": "Bilinmeyen bir hata oluştu",
     "informations": "Bilgiler",
-    "location": "Konum",
     "gender": "Cinsiyet",
     "status": "Durum",
     "specie": "Tür",
@@ -20,7 +22,6 @@
     "dimension": "Boyut",
     "residents": "Sakinler",
     "cast": "Kadro",
-    "episode": "Bölüm",
     "date": "Çıkış Tarihi",
     "filters": "Filtreler",
     "unknown": "Bilinmiyor",
@@ -30,5 +31,7 @@
     "noGender": "Cinsiyyet yok",
     "female": "Kadın",
     "male": "Erkek",
-    "genderless": "Cinsiyyetsiz"
+    "genderless": "Cinsiyyetsiz",
+    "fetchingFailure": "Bilinmeyen bir hata nedeniyle {} yüklenemedi\nLütfen internet bağlantınızı kontrol edin",
+    "fetchingFailureWithFilter": "Bilinmeyen bir hata nedeniyle {} yüklenemedi\nLütfen internet bağlantınızı kontrol edin veya farklı filtre seçenekleri kullanın"
 }
