@@ -27,12 +27,12 @@ class CharInfo extends StatelessWidget {
         children: [
           const Text("informations", style: TextStyles.containerTitleStyle).tr(),
           const SizedBox(height: 16),
-          InfoListTile(title: "gender".tr(), value: model?.gender.tr() ?? ''),
-          InfoListTile(title: "status".tr(), value: model?.status.tr() ?? ''),
-          InfoListTile(title: "specie".tr(), value: model?.species.tr() ?? ''),
-          InfoListTile(title: "type".tr(), value: model?.type.tr() ?? ''),
-          _LocationListTile(title: "origin".tr(), location: model?.origin),
-          _LocationListTile(title: "location".tr(), location: model?.location),
+          InfoListTile(title: "gender", value: model?.gender ?? ''),
+          InfoListTile(title: "status", value: model?.status ?? ''),
+          InfoListTile(title: "specie", value: model?.species ?? ''),
+          InfoListTile(title: "type", value: model?.type ?? ''),
+          _LocationListTile(title: "origin", location: model?.origin),
+          _LocationListTile(title: "location", location: model?.location),
         ],
       ),
     );
@@ -68,7 +68,7 @@ class _LocationListTile extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(title, style: TextStyles.infoTitleStyle),
+                      Text(title.tr(), style: TextStyles.infoTitleStyle),
                       Text(
                         (location?.name.isEmpty ?? true) ? "unknown".tr() : location!.name,
                         style: TextStyles.infoValueStyle,

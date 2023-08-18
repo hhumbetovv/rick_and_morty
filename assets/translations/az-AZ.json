@@ -9,7 +9,7 @@
     "loadMore": "DAHA ÇOX YÜKLƏ",
     "goBack": "GERİ",
     "apply": "TƏTBİQ ET",
-    "advancedFilters": "GENİŞLƏDİLMİŞ FİLTRLƏR",
+    "advancedFilters": "GENİŞLƏNDİRİLMİŞ FİLTRLƏR",
     "search": "Axtar",
     "searchByName": "Ada görə axtar",
     "error": "Bilinməyən bir xəta baş verdi",
@@ -24,6 +24,7 @@
     "cast": "Heyət",
     "date": "Çıxış Tarixi",
     "filters": "Filtrlər",
+    "": "Naməlum",
     "unknown": "Naməlum",
     "noStatus": "Status seçilməmişdir",
     "alive": "Həyatda",
@@ -32,6 +33,13 @@
     "female": "Qadın",
     "male": "Kişi",
     "genderless": "Cinssiz",
+    "languageSelection": "Dil Seçimi",
     "fetchingFailure": "Bilinməyən bir xəta səbəbiylə {} yükləməsi baş tutmadı\nZəhmət olmasa internet bağlantınızı yoxlayın",
-    "fetchingFailureWithFilter": "Bilinmeyen bir hata nedeniyle {} yükləməsi baş tutmadı\nnZəhmət olmasa internet bağlantınızı yoxlayın və ya müxtəlif filtrlərdən istifadə edin"
+    "fetchingFailureWithFilter": "Bilinmeyen bir hata nedeniyle {} yükləməsi baş tutmadı\nnZəhmət olmasa internet bağlantınızı yoxlayın və ya müxtəlif filtrlərdən istifadə edin",
+    "en_US": "İngilizcə",
+    "lang_en_US": "English",
+    "tr_TR": "Türkcə",
+    "lang_tr_TR": "Türkçe",
+    "az_AZ": "Azərbaycanca",
+    "lang_az_AZ": "Azərbaycanca"
 }

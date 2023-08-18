@@ -22,8 +22,8 @@ class EpInfo extends StatelessWidget {
         children: [
           const Text("informations", style: TextStyles.containerTitleStyle).tr(),
           const SizedBox(height: 16),
-          InfoListTile(title: "episode".tr(), value: model?.episode ?? ''),
-          InfoListTile(title: "date".tr(), value: model?.air_date ?? ''),
+          InfoListTile(title: "episode", value: model?.episode ?? ''),
+          InfoListTile(title: "date", value: model?.air_date ?? ''),
         ],
       ),
     );

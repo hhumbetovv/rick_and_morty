@@ -28,9 +28,9 @@ class CharFilter extends Equatable {
 }
 
 enum CharStatus {
-  nostatus('', "No Status Selection"),
-  alive('alive', "Alive"),
-  dead('dead', "Dead"),
+  nostatus('', "noStatus"),
+  alive('alive', "alive"),
+  dead('dead', "dead"),
   unknown('unknown', "unknown");
 
   const CharStatus(this.value, this.text);
@@ -40,10 +40,10 @@ enum CharStatus {
 }
 
 enum CharGender {
-  nogender('', "No Gender Selection"),
-  female('female', "Female"),
-  male('male', "Male"),
-  genderless('genderless', "Genderless"),
+  nogender('', "noGender"),
+  female('female', "female"),
+  male('male', "male"),
+  genderless('genderless', "genderless"),
   unknown('unknown', "unknown");
 
   const CharGender(this.value, this.text);

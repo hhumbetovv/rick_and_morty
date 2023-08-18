@@ -22,8 +22,8 @@ class LocInfo extends StatelessWidget {
         children: [
           const Text("informations", style: TextStyles.containerTitleStyle).tr(),
           const SizedBox(height: 16),
-          InfoListTile(title: "type".tr(), value: model?.type.tr() ?? ''),
-          InfoListTile(title: "dimension".tr(), value: model?.dimension.tr() ?? ''),
+          InfoListTile(title: "type", value: model?.type ?? ''),
+          InfoListTile(title: "dimension", value: model?.dimension ?? ''),
         ],
       ),
     );

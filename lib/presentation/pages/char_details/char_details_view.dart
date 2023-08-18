@@ -13,11 +13,16 @@ import 'components/avatar_skeleton.dart';
 import 'components/char_episodes.dart';
 import 'components/char_info.dart';
 
-class CharDetailsView extends StatelessWidget {
+class CharDetailsView extends StatefulWidget {
   const CharDetailsView({
     Key? key,
   }) : super(key: key);
 
+  @override
+  State<CharDetailsView> createState() => _CharDetailsViewState();
+}
+
+class _CharDetailsViewState extends State<CharDetailsView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

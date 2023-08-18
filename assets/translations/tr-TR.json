@@ -24,6 +24,7 @@
     "cast": "Kadro",
     "date": "Çıkış Tarihi",
     "filters": "Filtreler",
+    "": "Bilinmiyor",
     "unknown": "Bilinmiyor",
     "noStatus": "Durum yok",
     "alive": "Hayatta",
@@ -32,6 +33,13 @@
     "female": "Kadın",
     "male": "Erkek",
     "genderless": "Cinsiyyetsiz",
+    "languageSelection": "Dil Seçimi",
     "fetchingFailure": "Bilinmeyen bir hata nedeniyle {} yüklenemedi\nLütfen internet bağlantınızı kontrol edin",
-    "fetchingFailureWithFilter": "Bilinmeyen bir hata nedeniyle {} yüklenemedi\nLütfen internet bağlantınızı kontrol edin veya farklı filtre seçenekleri kullanın"
+    "fetchingFailureWithFilter": "Bilinmeyen bir hata nedeniyle {} yüklenemedi\nLütfen internet bağlantınızı kontrol edin veya farklı filtre seçenekleri kullanın",
+    "en_US": "İngilizce",
+    "lang_en_US": "English",
+    "tr_TR": "Türkçe",
+    "lang_tr_TR": "Türkçe",
+    "az_AZ": "Azerbeycanca",
+    "lang_az_AZ": "Azərbaycanca"
 }

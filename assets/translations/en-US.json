@@ -24,7 +24,8 @@
     "cast": "Cast",
     "date": "Date",
     "filters": "Filters",
-    "unknown": "unknown",
+    "": "Unknown",
+    "unknown": "Unknown",
     "noStatus": "No Status",
     "alive": "Alive",
     "dead": "Dead",
@@ -32,6 +33,13 @@
     "female": "Female",
     "male": "Male",
     "genderless": "Genderless",
+    "languageSelection": "Language Selection",
     "fetchingFailure": "Error occured while fetching {}\nPlease check your internet connection",
-    "fetchingFailureWithFilter": "Error occured while fetching {}\nPlease check your internet connection or use different filter options"
+    "fetchingFailureWithFilter": "Error occured while fetching {}\nPlease check your internet connection or use different filter options",
+    "en_US": "English",
+    "lang_en_US": "English",
+    "tr_TR": "Turkish",
+    "lang_tr_TR": "Türkçe",
+    "az_AZ": "Azerbaijani",
+    "lang_az_AZ": "Azərbaycanca"
 }

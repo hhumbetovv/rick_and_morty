@@ -14,7 +14,11 @@ class CardText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      text ?? "unknown".tr(),
+      text == null
+          ? "unknown".tr()
+          : text!.trExists()
+              ? text!.tr()
+              : text!,
       maxLines: 1,
       overflow: TextOverflow.ellipsis,
       style: style,

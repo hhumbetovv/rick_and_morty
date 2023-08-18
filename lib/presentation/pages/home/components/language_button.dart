@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rick_and_morty/presentation/dialogs/language_bottom_sheet.dart';
 
 class LanguageButton extends StatelessWidget {
   const LanguageButton({
@@ -9,12 +10,7 @@ class LanguageButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        showModalBottomSheet(
-          context: context,
-          builder: (context) {
-            return Container();
-          },
-        );
+        showLanguageBottomSheet(context);
       },
       child: Container(
         height: 24,

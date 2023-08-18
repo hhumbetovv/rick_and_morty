@@ -23,8 +23,8 @@ class InfoListTile extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(title, style: TextStyles.infoTitleStyle),
-              Text(value.isEmpty ? "unknown".tr() : value, style: TextStyles.infoValueStyle),
+              Text(title.tr(), style: TextStyles.infoTitleStyle),
+              Text(value.trExists() ? value.tr() : value, style: TextStyles.infoValueStyle),
             ],
           ),
         ),
