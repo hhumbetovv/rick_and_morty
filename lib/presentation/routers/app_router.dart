@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
+import 'package:rick_and_morty/presentation/pages/settings/settings_view.dart';
 
 import '../../constants/routes.dart';
 import '../pages/home/home_view.dart';
@@ -9,15 +10,32 @@ import 'ep_branch.dart';
 import 'loc_branch.dart';
 
 class AppRouter {
-  static final _rootNavigatorKey = GlobalKey<NavigatorState>();
+  static final _homeNavigatorKey = GlobalKey<NavigatorState>();
 
   static final _router = GoRouter(
     initialLocation: Routes.splash,
-    navigatorKey: _rootNavigatorKey,
+    navigatorKey: _homeNavigatorKey,
     routes: [
       GoRoute(
         path: Routes.splash,
         builder: (context, state) => const SplashView(),
+      ),
+      GoRoute(
+        parentNavigatorKey: _homeNavigatorKey,
+        path: Routes.settings,
+        pageBuilder: (context, state) {
+          return CustomTransitionPage(
+            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+              return CupertinoPageTransition(
+                primaryRouteAnimation: animation,
+                secondaryRouteAnimation: secondaryAnimation,
+                linearTransition: false,
+                child: child,
+              );
+            },
+            child: const SettingsView(),
+          );
+        },
       ),
       StatefulShellRoute.indexedStack(
         pageBuilder: (context, state, navigationShell) {

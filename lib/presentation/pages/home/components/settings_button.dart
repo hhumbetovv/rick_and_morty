@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:rick_and_morty/presentation/dialogs/language_bottom_sheet.dart';
+import 'package:go_router/go_router.dart';
+import 'package:rick_and_morty/constants/routes.dart';
 
-class LanguageButton extends StatelessWidget {
-  const LanguageButton({
+class SettingsButton extends StatelessWidget {
+  const SettingsButton({
     Key? key,
   }) : super(key: key);
 
@@ -10,7 +11,8 @@ class LanguageButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        showLanguageBottomSheet(context);
+        // showLanguageBottomSheet(context);
+        context.push(Routes.settings);
       },
       child: Container(
         height: 24,
@@ -18,7 +20,7 @@ class LanguageButton extends StatelessWidget {
         margin: const EdgeInsets.only(right: 24),
         alignment: Alignment.center,
         child: const Icon(
-          Icons.language,
+          Icons.settings,
           color: Colors.black,
         ),
       ),

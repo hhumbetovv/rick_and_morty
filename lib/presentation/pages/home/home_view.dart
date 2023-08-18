@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../constants/images.dart';
-import 'components/language_button.dart';
 import 'components/menu_button.dart';
 import 'components/selections.dart';
+import 'components/settings_button.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({
@@ -41,7 +41,7 @@ class _HomeViewState extends State<HomeView> {
           child: Image.asset(AppImages.logo.path),
         ),
         actions: [
-          const LanguageButton(),
+          const SettingsButton(),
           ValueListenableBuilder(
             valueListenable: _openMenu,
             builder: (context, open, child) {
@@ -68,11 +68,13 @@ class _HomeViewState extends State<HomeView> {
             indexCallback: (int index) {
               widget.navigationShell.goBranch(index);
               _scaffoldKey.currentState?.closeEndDrawer();
-              _openMenu.value = false;
             },
           ),
         ),
         body: widget.navigationShell,
+        onEndDrawerChanged: (isOpened) {
+          _openMenu.value = isOpened;
+        },
       ),
     );
   }
