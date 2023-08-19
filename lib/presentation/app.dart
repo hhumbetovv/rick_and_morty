@@ -12,7 +12,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: "appTitle".tr(),
+      title: "appTitle".trExists() ? "appTitle".tr() : "Rick and Morty",
       theme: AppThemes.light,
       debugShowCheckedModeBanner: false,
       routerConfig: AppRouter.router,
