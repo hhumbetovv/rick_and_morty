@@ -5,21 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:rick_and_morty/constants/text_styles.dart';
 import 'package:rick_and_morty/presentation/global/components/go_back_button.dart';
 
-class SettingsView extends StatefulWidget {
+class SettingsView extends StatelessWidget {
   const SettingsView({
     Key? key,
   }) : super(key: key);
-
-  @override
-  State<SettingsView> createState() => _SettingsViewState();
-}
-
-class _SettingsViewState extends State<SettingsView> {
-  void localeCallBack(Locale locale) {
-    setState(() {
-      context.setLocale(locale);
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +26,6 @@ class _SettingsViewState extends State<SettingsView> {
                 ...context.supportedLocales.map((locale) {
                   return _LocaleSelection(
                     locale: locale,
-                    localeCallBack: localeCallBack,
                   );
                 }).toList()
               ],
@@ -53,11 +41,9 @@ class _LocaleSelection extends StatelessWidget {
   const _LocaleSelection({
     Key? key,
     required this.locale,
-    required this.localeCallBack,
   }) : super(key: key);
 
   final Locale locale;
-  final void Function(Locale locale) localeCallBack;
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +54,7 @@ class _LocaleSelection extends StatelessWidget {
       ),
       child: ListTile(
         onTap: () {
-          localeCallBack(locale);
+          context.setLocale(locale);
         },
         title: Text(locale.toString().tr()),
         subtitle: Text(
