@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
-import 'package:rick_and_morty/presentation/pages/settings/settings_view.dart';
 
 import '../../constants/routes.dart';
 import '../pages/home/home_view.dart';
+import '../pages/settings/settings_view.dart';
 import '../pages/splash/splash_view.dart';
 import 'char_branch.dart';
 import 'ep_branch.dart';
