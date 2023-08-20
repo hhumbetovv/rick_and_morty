@@ -1,28 +1,25 @@
-import 'package:device_preview/device_preview.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'config/init.dart';
+import 'cubits/cubit/settings_cubit.dart';
+import 'data/contractors/base_localization_repository.dart';
+import 'data/repositories/localization_repository.dart';
 import 'presentation/app.dart';
 
 void main() async {
   await init();
   runApp(
-    DevicePreview(
-      enabled: false, //!kReleaseMode,
-      builder: (context) {
-        return EasyLocalization(
-          saveLocale: true,
-          supportedLocales: const [
-            Locale("en", "US"),
-            Locale("tr", "TR"),
-            Locale("az", "AZ"),
-          ],
-          path: 'assets/translations',
-          fallbackLocale: const Locale('en', 'US'),
-          child: const App(),
-        );
-      },
+    MultiRepositoryProvider(
+      providers: [
+        RepositoryProvider<BaseLocalizationRepository>(create: (context) => LocalizationRepository()),
+      ],
+      child: BlocProvider<SettingsCubit>(
+        create: (context) => SettingsCubit(
+          context.read<BaseLocalizationRepository>(),
+        )..initSettings(),
+        child: const App(),
+      ),
     ),
   );
 }
