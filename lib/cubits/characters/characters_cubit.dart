@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:equatable/equatable.dart';
 
 import '../../data/contractors/base_char_repository.dart';
@@ -41,8 +40,8 @@ class CharactersCubit extends Cubit<CharactersState> {
       emit(
         state.copyWith(
           failure: EntityFailure(
-            "fetchingFailureWithFilter".tr(args: ["characters".tr().toLowerCase()]),
-          ),
+              // "fetchingFailureWithFilter".tr(args: ["characters".tr().toLowerCase()]),
+              ),
         ),
       );
     }
