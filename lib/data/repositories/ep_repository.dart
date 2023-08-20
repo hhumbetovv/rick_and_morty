@@ -8,7 +8,7 @@ import '../models/response/result_model.dart';
 import '../services/ep_service.dart';
 
 class EpRepository implements BaseEpRepository {
-  final _epService = locator.get<EpService>();
+  final _epService = getIt.get<EpService>();
 
   @override
   Future<Result<EpModel, StackFailure>> getEpisode(int id) async {

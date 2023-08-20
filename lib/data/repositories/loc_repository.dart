@@ -8,7 +8,7 @@ import '../models/response/result_model.dart';
 import '../services/loc_service.dart';
 
 class LocRepository implements BaseLocRepository {
-  final _locService = locator.get<LocService>();
+  final _locService = getIt.get<LocService>();
 
   @override
   Future<Result<LocModel, StackFailure>> getLocation(int id) async {

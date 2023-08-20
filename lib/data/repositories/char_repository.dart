@@ -8,7 +8,7 @@ import '../models/response/result_model.dart';
 import '../services/char_service.dart';
 
 class CharRepository implements BaseCharRepository {
-  final _charService = locator.get<CharService>();
+  final _charService = getIt.get<CharService>();
 
   @override
   Future<Result<CharModel, StackFailure>> getCharacter(int id) async {
