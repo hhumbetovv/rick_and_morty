@@ -1,4 +1,6 @@
 {
+    "@@locale": "az",
+    "lang": "Azərbaycanca",
     "appTitle": "Rick və Morty",
     "characters": "Xarakterlər",
     "character": "Xarakter",
@@ -24,7 +26,6 @@
     "cast": "Heyət",
     "date": "Çıxış Tarixi",
     "filters": "Filtrlər",
-    "": "Naməlum",
     "unknown": "Naməlum",
     "noStatus": "Status seçilməmişdir",
     "alive": "Həyatda",
@@ -34,12 +35,16 @@
     "male": "Kişi",
     "genderless": "Cinssiz",
     "languageSelection": "Dil Seçimi",
-    "fetchingFailure": "Bilinməyən bir xəta səbəbiylə {} yükləməsi baş tutmadı\nZəhmət olmasa internet bağlantınızı yoxlayın",
-    "fetchingFailureWithFilter": "Bilinmeyen bir hata nedeniyle {} yükləməsi baş tutmadı\nnZəhmət olmasa internet bağlantınızı yoxlayın və ya müxtəlif filtrlərdən istifadə edin",
-    "en_US": "İngilizcə",
-    "lang_en_US": "English",
-    "tr_TR": "Türkcə",
-    "lang_tr_TR": "Türkçe",
-    "az_AZ": "Azərbaycanca",
-    "lang_az_AZ": "Azərbaycanca"
+    "fetchingFailure": "Bilinməyən bir xəta səbəbiylə {entity} yükləməsi baş tutmadı\nZəhmət olmasa internet bağlantınızı yoxlayın",
+    "@fetchingFailure": {
+        "placeholders": {
+            "entity": {}
+        }
+    },
+    "fetchingFailureWithFilter": "Bilinmeyen bir hata nedeniyle {entity} yükləməsi baş tutmadı\nnZəhmət olmasa internet bağlantınızı yoxlayın və ya müxtəlif filtrlərdən istifadə edin",
+    "@fetchingFailureWithFilter": {
+        "placeholders": {
+            "entity": {}
+        }
+    }
 }
