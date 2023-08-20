@@ -1,5 +1,5 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../constants/text_styles.dart';
 import 'app_inkwell.dart';
@@ -36,6 +36,7 @@ class _NameSearchState extends State<NameSearch> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16),
       child: IntrinsicHeight(
@@ -49,7 +50,7 @@ class _NameSearchState extends State<NameSearch> {
                 focusNode: _node,
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.zero,
-                  label: Text("searchByName".tr()),
+                  label: Text(l10n.searchByName),
                   prefixIcon: const Icon(Icons.search),
                   border: const OutlineInputBorder(
                     borderRadius: BorderRadius.only(
@@ -75,10 +76,10 @@ class _NameSearchState extends State<NameSearch> {
                     bottomRight: Radius.circular(8),
                   ),
                 ),
-                child: const Text(
-                  "search",
+                child: Text(
+                  l10n.search,
                   style: TextStyles.labelStyle,
-                ).tr(),
+                ),
               ),
             ),
           ],

@@ -1,6 +1,6 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../cubits/char_details/char_details_cubit.dart';
@@ -25,6 +25,7 @@ class CharDetailsView extends StatefulWidget {
 class _CharDetailsViewState extends State<CharDetailsView> {
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(24),
@@ -37,7 +38,7 @@ class _CharDetailsViewState extends State<CharDetailsView> {
                 context.pop();
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
-                    content: Text(state.failure?.message ?? "error".tr()),
+                    content: Text(state.failure?.message ?? l10n.error),
                   ),
                 );
               }

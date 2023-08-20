@@ -1,5 +1,5 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../constants/text_styles.dart';
@@ -12,6 +12,7 @@ class GoBackButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return AppInkWell(
       onTap: () {
         context.pop();
@@ -21,7 +22,7 @@ class GoBackButton extends StatelessWidget {
           const Icon(Icons.arrow_back),
           const SizedBox(width: 8),
           Text(
-            "goBack".tr(),
+            l10n.goBack,
             style: TextStyles.goBackButtonStyle,
           ),
         ],

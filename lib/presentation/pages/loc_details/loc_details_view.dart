@@ -1,6 +1,6 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../cubits/loc_details/loc_details_cubit.dart';
@@ -19,6 +19,7 @@ class LocDetailsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
@@ -29,7 +30,7 @@ class LocDetailsView extends StatelessWidget {
               context.pop();
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
-                  content: Text(state.failure?.message ?? "error".tr()),
+                  content: Text(state.failure?.message ?? l10n.error),
                 ),
               );
             }
@@ -57,7 +58,7 @@ class LocDetailsView extends StatelessWidget {
                     const GoBackButton(),
                     EntityName.padding(name: state.model?.name ?? ''),
                     LocInfo(model: state.model),
-                    CharList(title: "residents".tr(), list: state.residents),
+                    CharList(title: l10n.residents, list: state.residents),
                   ],
                 ),
               ),

@@ -1,5 +1,5 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../../constants/text_styles.dart';
 
@@ -13,21 +13,22 @@ class Selections extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return IntrinsicWidth(
       stepWidth: double.maxFinite,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           _SelectionButton(
-            text: "characters",
+            text: l10n.characters,
             onTap: () => indexCallback(0),
           ),
           _SelectionButton(
-            text: "locations",
+            text: l10n.locations,
             onTap: () => indexCallback(1),
           ),
           _SelectionButton(
-            text: "episodes",
+            text: l10n.episodes,
             onTap: () => indexCallback(2),
           ),
         ],
@@ -52,7 +53,7 @@ class _SelectionButton extends StatelessWidget {
       padding: const EdgeInsets.only(top: 24),
       child: CupertinoButton(
         onPressed: onTap,
-        child: Text(text.tr(), style: TextStyles.selectionStyle),
+        child: Text(text, style: TextStyles.selectionStyle),
       ),
     );
   }

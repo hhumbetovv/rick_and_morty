@@ -1,4 +1,3 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class AppDropdown<T> extends StatefulWidget {
@@ -46,7 +45,7 @@ class _AppDropdownState<T> extends State<AppDropdown<T>> {
           items: widget.values.map((element) {
             return DropdownMenuItem(
               value: element.$1,
-              child: Text(element.$2.tr()),
+              child: Text(element.$2),
             );
           }).toList(),
           onChanged: (value) {

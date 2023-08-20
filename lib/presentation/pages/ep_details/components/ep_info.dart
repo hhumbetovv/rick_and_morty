@@ -1,5 +1,5 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../../constants/text_styles.dart';
 import '../../../../data/models/response/ep_model.dart';
@@ -15,15 +15,16 @@ class EpInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 24),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text("informations", style: TextStyles.containerTitleStyle).tr(),
+          Text(l10n.informations, style: TextStyles.containerTitleStyle),
           const SizedBox(height: 16),
-          InfoListTile(title: "episode", value: model?.episode ?? ''),
-          InfoListTile(title: "date", value: model?.air_date ?? ''),
+          InfoListTile(title: l10n.episode, value: model?.episode ?? l10n.unknown),
+          InfoListTile(title: l10n.date, value: model?.air_date ?? l10n.unknown),
         ],
       ),
     );

@@ -1,6 +1,6 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../constants/images.dart';
 import '../../../cubits/characters/characters_cubit.dart';
@@ -19,6 +19,7 @@ class CharactersView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Padding(
@@ -37,7 +38,7 @@ class CharactersView extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.only(bottom: 16),
                 child: AppButton(
-                  text: "advancedFilters".tr(),
+                  text: l10n.advancedFilters,
                   onPressed: () async {
                     final result = await showFilterDialog(context, context.read<CharactersCubit>().state.filter);
                     if (result != null && context.mounted) {
@@ -53,7 +54,7 @@ class CharactersView extends StatelessWidget {
                 if (state.failure != null && state.characters.isNotEmpty) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
-                      content: Text(state.failure?.message ?? "error".tr()),
+                      content: Text(state.failure?.message ?? l10n.error),
                     ),
                   );
                 }

@@ -1,5 +1,5 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../constants/text_styles.dart';
 import '../../data/models/filters/char_filter.dart';
@@ -41,6 +41,7 @@ class __FilterBodyState extends State<_FilterBody> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return SimpleDialog(
       contentPadding: const EdgeInsets.all(16),
       insetPadding: EdgeInsets.zero,
@@ -61,7 +62,7 @@ class __FilterBodyState extends State<_FilterBody> {
           onChanged: (gender) => filter = filter.copyWith(gender: gender),
         ),
         AppButton(
-          text: "apply".tr(),
+          text: l10n.apply,
           onPressed: () {
             Navigator.of(context).pop((filter.status, filter.gender));
           },
@@ -76,13 +77,14 @@ class _TopRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Text("filters", style: TextStyles.cardNameStyle).tr(),
+          Text(l10n.filters, style: TextStyles.cardNameStyle),
           GestureDetector(
             onTap: () {
               Navigator.of(context).pop();

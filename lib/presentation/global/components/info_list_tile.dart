@@ -1,5 +1,5 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../constants/text_styles.dart';
 
@@ -15,6 +15,7 @@ class InfoListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -23,8 +24,8 @@ class InfoListTile extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(title.tr(), style: TextStyles.infoTitleStyle),
-              Text(value.trExists() ? value.tr() : value, style: TextStyles.infoValueStyle),
+              Text(title, style: TextStyles.infoTitleStyle),
+              Text(value.isEmpty ? l10n.unknown : value, style: TextStyles.infoValueStyle),
             ],
           ),
         ),

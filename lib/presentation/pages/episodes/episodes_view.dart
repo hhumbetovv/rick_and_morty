@@ -1,6 +1,6 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../constants/images.dart';
 import '../../../cubits/episodes/episodes_cubit.dart';
@@ -16,6 +16,7 @@ class EpisodesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Padding(
@@ -35,7 +36,7 @@ class EpisodesView extends StatelessWidget {
                 if (state.failure != null && state.episodes.isNotEmpty) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
-                      content: Text(state.failure!.message ?? "error".tr()),
+                      content: Text(state.failure!.message ?? l10n.error),
                     ),
                   );
                 }

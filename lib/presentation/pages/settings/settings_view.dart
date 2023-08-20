@@ -1,9 +1,11 @@
-// ignore_for_file: prefer_const_constructors
-
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:rick_and_morty/constants/text_styles.dart';
-import 'package:rick_and_morty/presentation/global/components/go_back_button.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../../../constants/text_styles.dart';
+import '../../../cubits/cubit/settings_cubit.dart';
+import '../../../l10n/language_local.dart';
+import '../../global/components/go_back_button.dart';
 
 class SettingsView extends StatelessWidget {
   const SettingsView({
@@ -21,13 +23,11 @@ class SettingsView extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                GoBackButton(),
-                _TopRow(),
-                ...context.supportedLocales.map((locale) {
-                  return _LocaleSelection(
-                    locale: locale,
-                  );
-                }).toList()
+                const GoBackButton(),
+                const _TopRow(),
+                ...AppLocalizations.supportedLocales.map((locale) {
+                  return _LocaleSelection(locale: locale);
+                }).toList(),
               ],
             ),
           ),
@@ -54,18 +54,16 @@ class _LocaleSelection extends StatelessWidget {
       ),
       child: ListTile(
         onTap: () {
-          context.setLocale(locale);
+          context.read<SettingsCubit>().setLocale(locale);
         },
-        title: Text(locale.toString().tr()),
-        subtitle: Text(
-          'lang_${locale.toString()}'.tr(),
-        ),
+        title: Text(LanguageLocal.getDisplayLanguage(locale.languageCode).nativeName),
+        subtitle: Text(LanguageLocal.getDisplayLanguage(locale.languageCode).name),
         contentPadding: EdgeInsets.zero,
         leading: Radio<Locale>(
           value: locale,
-          groupValue: context.locale,
+          groupValue: context.watch<SettingsCubit>().state.locale,
           onChanged: (Locale? value) {
-            context.setLocale(locale);
+            context.read<SettingsCubit>().setLocale(locale);
           },
         ),
       ),
@@ -80,12 +78,13 @@ class _TopRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16),
-      child: const Text(
-        'languageSelection',
+      child: Text(
+        l10n.languageSelection,
         style: TextStyles.cardNameStyle,
-      ).tr(),
+      ),
     );
   }
 }

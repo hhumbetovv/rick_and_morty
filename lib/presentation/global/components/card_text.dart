@@ -1,5 +1,5 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CardText extends StatelessWidget {
   const CardText(
@@ -13,12 +13,14 @@ class CardText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Text(
-      text == null
-          ? "unknown".tr()
-          : text!.trExists()
-              ? text!.tr()
-              : text!,
+      switch (text) {
+        null => l10n.unknown,
+        '' => l10n.unknown,
+        'unknown' => l10n.unknown,
+        _ => text!,
+      },
       maxLines: 1,
       overflow: TextOverflow.ellipsis,
       style: style,

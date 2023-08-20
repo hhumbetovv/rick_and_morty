@@ -1,5 +1,5 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../../constants/text_styles.dart';
 import '../../../../data/models/response/loc_model.dart';
@@ -15,15 +15,16 @@ class LocInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 24),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text("informations", style: TextStyles.containerTitleStyle).tr(),
+          Text(l10n.informations, style: TextStyles.containerTitleStyle),
           const SizedBox(height: 16),
-          InfoListTile(title: "type", value: model?.type ?? ''),
-          InfoListTile(title: "dimension", value: model?.dimension ?? ''),
+          InfoListTile(title: l10n.type, value: model?.type ?? l10n.unknown),
+          InfoListTile(title: l10n.dimension, value: model?.dimension ?? l10n.unknown),
         ],
       ),
     );

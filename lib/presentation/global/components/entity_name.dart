@@ -1,5 +1,5 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../constants/text_styles.dart';
 
@@ -21,13 +21,14 @@ class EntityName extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Padding(
       padding: padding,
       child: Center(
         child: FittedBox(
           fit: BoxFit.fitWidth,
           child: Text(
-            name.isEmpty ? "unknown".tr() : name,
+            name.isEmpty ? l10n.unknown : name,
             textAlign: TextAlign.center,
             overflow: TextOverflow.ellipsis,
             style: TextStyles.nameStyle,

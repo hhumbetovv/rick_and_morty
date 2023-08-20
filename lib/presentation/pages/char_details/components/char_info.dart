@@ -1,5 +1,5 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../constants/routes.dart';
@@ -20,19 +20,35 @@ class CharInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 24),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text("informations", style: TextStyles.containerTitleStyle).tr(),
+          Text(l10n.informations, style: TextStyles.containerTitleStyle),
           const SizedBox(height: 16),
-          InfoListTile(title: "gender", value: model?.gender ?? ''),
-          InfoListTile(title: "status", value: model?.status ?? ''),
-          InfoListTile(title: "specie", value: model?.species ?? ''),
-          InfoListTile(title: "type", value: model?.type ?? ''),
-          _LocationListTile(title: "origin", location: model?.origin),
-          _LocationListTile(title: "location", location: model?.location),
+          InfoListTile(
+            title: l10n.gender,
+            value: switch (model?.gender) {
+              "Female" => l10n.female,
+              "Male" => l10n.male,
+              "Genderless" => l10n.genderless,
+              _ => l10n.unknown,
+            },
+          ),
+          InfoListTile(
+            title: l10n.status,
+            value: switch (model?.status) {
+              'Alive' => l10n.alive,
+              'Dead' => l10n.dead,
+              _ => l10n.unknown,
+            },
+          ),
+          InfoListTile(title: l10n.specie, value: model?.species ?? l10n.unknown),
+          InfoListTile(title: l10n.type, value: model?.type ?? l10n.unknown),
+          _LocationListTile(title: l10n.origin, location: model?.origin),
+          _LocationListTile(title: l10n.location, location: model?.location),
         ],
       ),
     );
@@ -51,6 +67,7 @@ class _LocationListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return AppInkWell(
       onTap: location?.url.isNotEmpty ?? false
           ? () {
@@ -68,9 +85,9 @@ class _LocationListTile extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(title.tr(), style: TextStyles.infoTitleStyle),
+                      Text(title, style: TextStyles.infoTitleStyle),
                       Text(
-                        (location?.name.isEmpty ?? true) ? "unknown".tr() : location!.name,
+                        (location?.name.isEmpty ?? true) ? l10n.unknown : location!.name,
                         style: TextStyles.infoValueStyle,
                       ),
                     ],

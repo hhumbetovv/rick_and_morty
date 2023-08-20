@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:rick_and_morty/constants/routes.dart';
+
+import '../../../../constants/routes.dart';
 
 class SettingsButton extends StatelessWidget {
   const SettingsButton({
@@ -11,7 +12,6 @@ class SettingsButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // showLanguageBottomSheet(context);
         context.push(Routes.settings);
       },
       child: Container(

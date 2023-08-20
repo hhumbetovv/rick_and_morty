@@ -1,5 +1,5 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../constants/routes.dart';
@@ -17,12 +17,13 @@ class CharEpisodes extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 24),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text("episodes", style: TextStyles.containerTitleStyle).tr(),
+          Text(l10n.episodes, style: TextStyles.containerTitleStyle),
           const SizedBox(height: 16),
           ...episodes.map((model) => _EpisodeListTile(model: model)).toList(),
         ],

@@ -1,5 +1,5 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../constants/text_styles.dart';
 
@@ -15,6 +15,7 @@ class LoadMoreButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Center(
       child: SizedBox(
         height: 40,
@@ -27,10 +28,10 @@ class LoadMoreButton extends StatelessWidget {
                   backgroundColor: Colors.blue[50],
                   padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 28),
                 ),
-                child: const Text(
-                  "loadMore",
+                child: Text(
+                  l10n.loadMore,
                   style: TextStyles.loadMoreStyle,
-                ).tr(),
+                ),
               ),
       ),
     );
