@@ -20,17 +20,17 @@ abstract class SubRoutes {
     GoRoute(
       path: '${Routes.charDetails}/:id',
       builder: (context, state) {
-        return RepositoryProvider<BaseCharRepository>(
-          create: (context) => CharRepository(),
-          child: RepositoryProvider<BaseEpRepository>(
-            create: (context) => EpRepository(),
-            child: BlocProvider(
-              create: (context) => CharDetailsCubit(
-                context.read<BaseCharRepository>(),
-                context.read<BaseEpRepository>(),
-              )..fetchCharacter(int.parse(state.pathParameters['id'] ?? '1')),
-              child: const CharDetailsView(),
-            ),
+        return MultiRepositoryProvider(
+          providers: [
+            RepositoryProvider<BaseCharRepository>(create: (context) => CharRepository()),
+            RepositoryProvider<BaseEpRepository>(create: (context) => EpRepository()),
+          ],
+          child: BlocProvider(
+            create: (context) => CharDetailsCubit(
+              context.read<BaseCharRepository>(),
+              context.read<BaseEpRepository>(),
+            )..fetchCharacter(int.parse(state.pathParameters['id'] ?? '1')),
+            child: const CharDetailsView(),
           ),
         );
       },
@@ -38,17 +38,17 @@ abstract class SubRoutes {
     GoRoute(
       path: '${Routes.locDetails}/:id',
       builder: (context, state) {
-        return RepositoryProvider<BaseLocRepository>(
-          create: (context) => LocRepository(),
-          child: RepositoryProvider<BaseCharRepository>(
-            create: (context) => CharRepository(),
-            child: BlocProvider(
-              create: (context) => LocDetailsCubit(
-                context.read<BaseLocRepository>(),
-                context.read<BaseCharRepository>(),
-              )..fetchLocation(int.parse(state.pathParameters['id'] ?? '1')),
-              child: const LocDetailsView(),
-            ),
+        return MultiRepositoryProvider(
+          providers: [
+            RepositoryProvider<BaseLocRepository>(create: (context) => LocRepository()),
+            RepositoryProvider<BaseCharRepository>(create: (context) => CharRepository()),
+          ],
+          child: BlocProvider(
+            create: (context) => LocDetailsCubit(
+              context.read<BaseLocRepository>(),
+              context.read<BaseCharRepository>(),
+            )..fetchLocation(int.parse(state.pathParameters['id'] ?? '1')),
+            child: const LocDetailsView(),
           ),
         );
       },
@@ -56,17 +56,17 @@ abstract class SubRoutes {
     GoRoute(
       path: '${Routes.epDetails}/:id',
       builder: (context, state) {
-        return RepositoryProvider<BaseEpRepository>(
-          create: (context) => EpRepository(),
-          child: RepositoryProvider<BaseCharRepository>(
-            create: (context) => CharRepository(),
-            child: BlocProvider(
-              create: (context) => EpDetailsCubit(
-                context.read<BaseEpRepository>(),
-                context.read<BaseCharRepository>(),
-              )..fetchEpisode(int.parse(state.pathParameters['id'] ?? '1')),
-              child: const EpisodeDetailsView(),
-            ),
+        return MultiRepositoryProvider(
+          providers: [
+            RepositoryProvider<BaseEpRepository>(create: (context) => EpRepository()),
+            RepositoryProvider<BaseCharRepository>(create: (context) => CharRepository()),
+          ],
+          child: BlocProvider(
+            create: (context) => EpDetailsCubit(
+              context.read<BaseEpRepository>(),
+              context.read<BaseCharRepository>(),
+            )..fetchEpisode(int.parse(state.pathParameters['id'] ?? '1')),
+            child: const EpisodeDetailsView(),
           ),
         );
       },
